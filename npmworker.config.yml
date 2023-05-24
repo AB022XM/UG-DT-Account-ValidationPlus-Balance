@@ -6,7 +6,7 @@ on:
     branches:
       - master:
     paths:
-      - ./path/to/npmworker.config.yaml
+      - ./npmworker.config.yaml
 jobs:
   npm:
     runs-on: ubuntu-latest
@@ -24,4 +24,4 @@ jobs:
           # the YAML configuration file.
           # If not provided the action will attempt to find it
           # before failing.
-          config: ./path/to/npmworker.config.yaml
+          config: ./npmworker.config.yaml
