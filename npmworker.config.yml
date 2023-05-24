@@ -1,0 +1,27 @@
+# ./.github/workflows/npmworker.yaml
+
+name: NPM Worker
+on:
+  push:
+    branches:
+      - master:
+    paths:
+      - ./path/to/npmworker.config.yaml
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    name: NPM Worker
+    steps:
+      - uses: actions/checkout@v2
+      - name: Worker
+        uses: mudlabs/npm-worker@1.3.0
+        with:
+          # OPTIONAL: Provide a PAT for the repository, so the
+          # action can log activity to an issue.
+          # Default: github.token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # OPTIONAL: Provide a path within your repository to
+          # the YAML configuration file.
+          # If not provided the action will attempt to find it
+          # before failing.
+          config: ./path/to/npmworker.config.yaml
